@@ -1,0 +1,334 @@
+
+:root{
+  --primary-100:#eef2ff;
+  --primary-200:#e3e8ff;
+  --primary-300:#cfd6ff;
+  --primary-400:#b7bfff;
+  --primary-500:#6a5cff;
+  --primary-600:#5146e5;
+
+  --accent:#ff7a90;
+  --success:#3ccf8e;
+  --warning:#ffc26b;
+
+  --text-dark:#0f1122;
+  --text-light:#ffffffcc;
+
+  --muted:#6b7280;
+
+  --bg-gradient: linear-gradient(135deg, #eef2ff, #f8f9ff);
+
+  --radius: 20px;
+
+  --shadow-soft: 0 8px 20px rgba(0,0,0,0.08);
+  --shadow-hover: 0 18px 35px rgba(0,0,0,0.12);
+
+  --anim-fast: 0.2s ease;
+  --anim-medium: 0.35s ease;
+}
+
+/* --------------------------
+   GLOBAL BACKGROUND
+   -------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Poppins", "Plus Jakarta Sans", sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-dark);
+  transition: background 0.4s ease;
+}
+
+/* --------------------------
+   FLOATING BLUR HEADER
+   -------------------------- */
+.header-blur {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 12px 22px;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.7);
+  box-shadow: var(--shadow-soft);
+  z-index: 999;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+/* --------------------------
+   GLASS SIDEBAR
+   -------------------------- */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 25px 15px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-soft);
+  border-right: 1px solid rgba(255,255,255,0.45);
+  transition: width var(--anim-medium);
+}
+
+.sidebar-collapsed {
+  width: 80px !important;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  margin: 10px 0;
+  border-radius: 14px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: var(--anim-fast);
+}
+
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.7);
+  transform: translateX(6px);
+  box-shadow: var(--shadow-soft);
+}
+
+.sidebar-item.active {
+  background: linear-gradient(135deg, #6a5cff33, #8d78ff22);
+  color: var(--primary-600);
+  box-shadow: 0 0 12px rgba(106,92,255,0.25);
+}
+
+/* --------------------------
+   GLASS + SOFT CARD SYSTEM
+   -------------------------- */
+.card {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255,255,255,0.55);
+  transition: transform var(--anim-medium), box-shadow var(--anim-medium);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+/* --------------------------
+   GRID SYSTEM FOR DASHBOARD
+   -------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-6 { grid-column: span 6; }
+.col-8 { grid-column: span 8; }
+.col-12 { grid-column: span 12; }
+
+@media(max-width:900px){
+  .col-3, .col-4, .col-6, .col-8, .col-12 {
+    grid-column: span 12;
+  }
+}
+
+/* --------------------------
+   PREMIUM GRADIENT BUTTONS
+   -------------------------- */
+.btn {
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #6a5cff, #8d78ff);
+  transition: var(--anim-fast);
+  box-shadow: 0 5px 15px rgba(106,92,255,0.25);
+}
+
+.btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 25px rgba(106,92,255,0.32);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* --------------------------
+   MICRO INTERACTIONS
+   -------------------------- */
+.scale-on-hover:hover {
+  transform: scale(1.03);
+  transition: 0.25s ease;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------
+   FLOATING LABEL INPUTS
+   -------------------------- */
+.form-field {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  transition: var(--anim-fast);
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 12px rgba(106,92,255,0.25);
+}
+
+.form-field label {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  color: #777;
+  pointer-events: none;
+  transition: var(--anim-fast);
+}
+
+.form-field input:focus + label,
+.form-field input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 12px;
+  background: white;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* --------------------------
+   PIE + BAR CHART SHELL
+   -------------------------- */
+.chart-box {
+  height: 260px;
+  padding: 10px;
+}
+
+/* --------------------------
+   ICON SUPPORT CLASSES
+   -------------------------- */
+.icon {
+  font-size: 20px;
+  color: inherit;
+}
+
+.icon-lg {
+  font-size: 28px;
+}
+
+/* --------------------------
+   EMPTY STATE (ANIMATED)
+   -------------------------- */
+.empty-state {
+  padding: 35px;
+  text-align: center;
+  opacity: 0.8;
+  animation: fadeIn 0.7s ease;
+}
+
+.empty-state img {
+  max-width: 180px;
+  opacity: 0.9;
+}
+
+.empty-state h3 {
+  margin-top: 14px;
+  color: var(--primary-600);
+}
+
+.empty-state p {
+  color: var(--muted);
+}
+
+/* Page background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #e9f0f7;  /* soft bluish background */
+}
+
+/* Main title */
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 40px;
+    color: #004b8d; /* strong blue */
+    font-weight: 700;
+}
+
+/* Login card box */
+.login-box {
+    width: 450px;
+    margin: 40px auto;
+    background: white;
+    padding: 35px 40px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Login heading */
+.login-box h2 {
+    margin-bottom: 25px;
+    color: #222;
+    font-size: 22px;
+}
+
+/* Input fields */
+.login-box input {
+    width: 90%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Login button */
+.login-box button {
+    padding: 10px 20px;
+    background: #006ad1;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.login-box button:hover {
+    background: #0055ad;
+}
+

@@ -1,0 +1,187 @@
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== ROOT WRAPPER ===== */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ===== BACKGROUND ===== */
+body {
+  background: linear-gradient(135deg, #4f46e5, #805ad5);
+  min-height: 100vh;
+  padding: 20px;
+  color: #fff;
+}
+
+/* ===== PAGE WRAPPER ===== */
+.page-wrapper {
+  padding-top: 90px;
+}
+
+.navbar-spacer {
+  height: 90px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar-link {
+  border-radius: 10px;
+  margin: 0 8px;
+  transition: 0.3s;
+}
+
+.sidebar-link .MuiListItemIcon-root {
+  color: #1976d2;
+}
+
+.sidebar-link:hover,
+.sidebar-link-active {
+  background-color: #1976d2;
+  color: #fff !important;
+}
+
+.sidebar-link:hover .MuiListItemIcon-root,
+.sidebar-link-active .MuiListItemIcon-root {
+  color: #fff !important;
+}
+
+/* ===== GLASS CARD ===== */
+.card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  padding: 12px 20px;
+  background: #ffffff15;
+  border: 1px solid #ffffff30;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.25s;
+  font-size: 15px;
+}
+
+.btn:hover {
+  background: #ffffff30;
+  transform: translateY(-3px);
+}
+
+/* ===== INPUTS ===== */
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ffffff40;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  outline: none;
+  margin-bottom: 10px;
+  backdrop-filter: blur(8px);
+}
+
+input:focus,
+select:focus {
+  border-color: #fff;
+  box-shadow: 0 0 10px #ffffff80;
+}
+
+/* ===== TABLE ===== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table thead {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.table th,
+.table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ffffff30;
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  margin-bottom: 25px;
+}
+
+.nav-title {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* ===== FOOTER (YOUR NEW CSS) ===== */
+.footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 35px;
+  border-top: 1px solid #ffffff30;
+  font-size: 14px;
+  color: #ffffffaa;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+  }
+
+  .page-wrapper {
+    padding-top: 70px;
+  }
+
+  .navbar-spacer {
+    height: 70px;
+  }
+}
